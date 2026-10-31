@@ -1,0 +1,35 @@
+{
+  "name": "Rate Fetcher",
+  "nodes": [
+    {
+      "id": "f1",
+      "name": "Manual Start",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "f2",
+      "name": "Fetch Exchange Rates",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "url": "https://api.example.com/rates",
+        "method": "GET"
+      }
+    }
+  ],
+  "connections": {},
+  "settings": {
+    "errorWorkflow": "wf-error-handler-001"
+  },
+  "active": false
+}

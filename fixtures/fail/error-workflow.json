@@ -1,0 +1,52 @@
+{
+  "name": "Nightly Record Transform",
+  "nodes": [
+    {
+      "id": "f1",
+      "name": "Manual Start",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "f2",
+      "name": "Prepare Record",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "status",
+              "value": "new"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "f3",
+      "name": "Transform Record",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "jsCode": "return items;"
+      }
+    }
+  ],
+  "connections": {},
+  "settings": {},
+  "active": false
+}

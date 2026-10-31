@@ -1,0 +1,64 @@
+{
+  "name": "Signup Intake",
+  "nodes": [
+    {
+      "id": "f1",
+      "name": "Signup Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "path": "signup",
+        "httpMethod": "POST",
+        "authentication": "headerAuth"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cred-header-1",
+          "name": "Intake Header Auth"
+        }
+      }
+    },
+    {
+      "id": "f2",
+      "name": "Prepare Signup",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "plan",
+              "value": "trial"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "f3",
+      "name": "Save Signup",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "jsCode": "return items;"
+      }
+    }
+  ],
+  "connections": {},
+  "settings": {
+    "errorWorkflow": "wf-error-handler-001"
+  },
+  "active": false
+}

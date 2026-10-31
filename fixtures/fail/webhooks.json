@@ -1,0 +1,45 @@
+{
+  "name": "Public Lead Form",
+  "nodes": [
+    {
+      "id": "f1",
+      "name": "Public Lead Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "path": "lead",
+        "httpMethod": "POST",
+        "authentication": "none"
+      }
+    },
+    {
+      "id": "f2",
+      "name": "Prepare Lead",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "source",
+              "value": "web"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "connections": {},
+  "settings": {
+    "errorWorkflow": "wf-error-handler-001"
+  },
+  "active": false
+}

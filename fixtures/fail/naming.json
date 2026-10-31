@@ -1,0 +1,136 @@
+{
+  "name": "Untitled Production Flow",
+  "nodes": [
+    {
+      "id": "f1",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "path": "in",
+        "httpMethod": "POST",
+        "authentication": "headerAuth"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cred-header-1",
+          "name": "Intake Header Auth"
+        }
+      }
+    },
+    {
+      "id": "f2",
+      "name": "Deduplicate Check",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "jsCode": "// dedup: skip already processed ids\nreturn items;"
+      }
+    },
+    {
+      "id": "f3",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "url": "https://api.example.com/x",
+        "method": "GET"
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "f4",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "jsCode": "return items;"
+      }
+    },
+    {
+      "id": "f5",
+      "name": "Code1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "jsCode": "return items;"
+      }
+    },
+    {
+      "id": "f6",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "conditions": {}
+      }
+    },
+    {
+      "id": "f7",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "values": {}
+      }
+    },
+    {
+      "id": "f8",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "f9",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "content": "Production flow."
+      }
+    }
+  ],
+  "connections": {},
+  "settings": {
+    "errorWorkflow": "wf-error-handler-001"
+  },
+  "active": false
+}
