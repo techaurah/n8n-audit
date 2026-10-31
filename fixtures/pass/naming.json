@@ -1,0 +1,132 @@
+{
+  "name": "Lead Flow (Well Named)",
+  "nodes": [
+    {
+      "id": "p1",
+      "name": "Intake Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "path": "lead",
+        "httpMethod": "POST",
+        "authentication": "headerAuth"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cred-header-1",
+          "name": "Intake Header Auth"
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "name": "Validate Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "jsCode": "return items;"
+      }
+    },
+    {
+      "id": "p3",
+      "name": "Score Lead",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "jsCode": "return items;"
+      }
+    },
+    {
+      "id": "p4",
+      "name": "Is Hot Lead",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "conditions": {}
+      }
+    },
+    {
+      "id": "p5",
+      "name": "Send Notification",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "url": "https://api.example.com/notify",
+        "method": "POST"
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "p6",
+      "name": "Save Lead to Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "documentId": "sheet-1",
+        "operation": "append"
+      },
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "c1",
+          "name": "Sheets"
+        }
+      }
+    },
+    {
+      "id": "p7",
+      "name": "Reply to Caller",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "respondWith": "json"
+      }
+    },
+    {
+      "id": "p8",
+      "name": "Log Outcome",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "jsCode": "return items;"
+      }
+    }
+  ],
+  "connections": {},
+  "settings": {
+    "errorWorkflow": "wf-error-handler-001"
+  },
+  "active": false
+}

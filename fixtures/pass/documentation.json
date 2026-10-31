@@ -1,0 +1,34 @@
+{
+  "name": "Documented Importer",
+  "nodes": [
+    {
+      "id": "p1",
+      "name": "Docs: Import Flow",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "content": "Imports the daily CSV and validates each row."
+      }
+    },
+    {
+      "id": "p2",
+      "name": "Start Import",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {}
+    }
+  ],
+  "connections": {},
+  "settings": {
+    "errorWorkflow": "wf-error-handler-001"
+  },
+  "active": false
+}

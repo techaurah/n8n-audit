@@ -1,0 +1,31 @@
+{
+  "name": "Partner Webhook (Basic Auth)",
+  "nodes": [
+    {
+      "id": "p1",
+      "name": "Partner Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "path": "partner",
+        "httpMethod": "POST",
+        "authentication": "basicAuth"
+      },
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "cred-basic-1",
+          "name": "Partner Basic"
+        }
+      }
+    }
+  ],
+  "connections": {},
+  "settings": {
+    "errorWorkflow": "wf-error-handler-001"
+  },
+  "active": false
+}

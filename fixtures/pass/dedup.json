@@ -1,0 +1,44 @@
+{
+  "name": "Form Intake With Dedup",
+  "nodes": [
+    {
+      "id": "p1",
+      "name": "Signup Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "path": "signup",
+        "httpMethod": "POST",
+        "authentication": "headerAuth"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cred-header-1",
+          "name": "Intake Header Auth"
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "name": "Check Processed Ids (Dedup)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "jsCode": "const seen = new Set($json.processedIds);\nreturn items.filter(i => !seen.has(i.json.id));"
+      }
+    }
+  ],
+  "connections": {},
+  "settings": {
+    "errorWorkflow": "wf-error-handler-001"
+  },
+  "active": false
+}
