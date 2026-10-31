@@ -1,0 +1,33 @@
+# n8n-audit
+
+> n8n-audit is a free, open-source command-line linter that statically checks exported n8n workflow JSON for the failure classes that break automations in production: pasted secrets, unauthenticated webhooks, missing error workflows, missing deduplication, and HTTP calls without retry. By TechAurah.
+
+Key facts:
+- License: MIT. Runtime: Python 3.10 or newer, zero runtime dependencies, works fully offline.
+- It is not an n8n plugin and does not run, schedule, or modify workflows: it audits exported workflow JSON statically.
+- It never connects to an n8n instance and never calls the network.
+- Checks: 8 deterministic rules; every finding carries severity and a one-line remediation.
+- Exit codes: 0 means no findings at or above the threshold, 1 means findings at or above it (default threshold: high), 2 means input could not be read.
+- Current version: 0.1.0.
+
+## Documentation
+
+- [README](https://github.com/techaurah/n8n-audit): Full overview, quickstart, and FAQ
+- [Rule reference](https://github.com/techaurah/n8n-audit/blob/main/docs/rules.md): All 8 rules, what each one detects, its severity, and its remediation
+- [Example report](https://github.com/techaurah/n8n-audit/blob/main/docs/example-report.md): A real generated report in text and JSON form
+
+## Examples
+
+- [Golden fixture](https://github.com/techaurah/n8n-audit/blob/main/fixtures/golden/lead-automation-hardened.json): A hardened lead-automation workflow that passes all 8 rules, runs with zero credentials
+- [Fail fixtures](https://github.com/techaurah/n8n-audit/tree/main/fixtures/fail): One failing workflow per rule, for reading a report against the rule reference
+
+## Use it
+
+- [Quickstart](https://github.com/techaurah/n8n-audit#quickstart): Install with pip install n8n-audit, then run n8n-audit on any exported workflow JSON file or directory
+- [Releases](https://github.com/techaurah/n8n-audit/releases): Version history and downloads
+
+## Optional
+
+- [Contributing](https://github.com/techaurah/n8n-audit/blob/main/CONTRIBUTING.md): How to contribute, including adding a new rule
+- [TechAurah profile](https://github.com/techaurah): The other five open-source projects
+- [TechAurah website](https://techaurah.com): The company behind the project
