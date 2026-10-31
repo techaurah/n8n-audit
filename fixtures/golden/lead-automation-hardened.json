@@ -1,0 +1,168 @@
+{
+  "name": "Lead Automation (Hardened)",
+  "nodes": [
+    {
+      "id": "n1",
+      "name": "Docs: Pipeline Overview",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "content": "## Lead pipeline\nIntake webhook receives leads, deduplicates them, scores them, writes the CRM sheet and replies. Owner: ops team.",
+        "color": 4
+      }
+    },
+    {
+      "id": "n2",
+      "name": "Lead Intake Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "path": "lead-intake",
+        "httpMethod": "POST",
+        "authentication": "headerAuth",
+        "responseMode": "responseNode"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cred-header-1",
+          "name": "Intake Header Auth"
+        }
+      }
+    },
+    {
+      "id": "n3",
+      "name": "Deduplicate by Lead ID",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "jsCode": "const leadId = $json.leadId;\nconst processedIds = $json.processedIds || [];\n// Idempotency: processed ids are checked before any write.\nconst duplicate = processedIds.includes(leadId);\nreturn [{ json: { leadId, duplicate } }];"
+      }
+    },
+    {
+      "id": "n4",
+      "name": "Is Qualified Lead",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.duplicate }}",
+              "value2": "false"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "n5",
+      "name": "Score Lead",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "jsCode": "const score = ($json.budget ? 30 : 0) + ($json.timeline ? 25 : 0);\nreturn [{ json: { ...$json, score } }];"
+      }
+    },
+    {
+      "id": "n6",
+      "name": "Send Welcome Message via Provider API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "url": "https://api.example.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "method": "POST",
+        "jsonBody": "={ \"leadId\": $json.leadId, \"score\": $json.score }"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cred-provider-1",
+          "name": "Provider API"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 1000
+    },
+    {
+      "id": "n7",
+      "name": "Upsert Lead in CRM Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "documentId": "={{ $env.CRM_SHEET_ID }}",
+        "sheetName": "Leads",
+        "operation": "appendOrUpdate"
+      },
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "cred-sheets-1",
+          "name": "CRM Sheet"
+        }
+      }
+    },
+    {
+      "id": "n8",
+      "name": "Write Audit Log Entry",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "jsCode": "return [{ json: { ...$json, auditedAt: new Date().toISOString() } }];"
+      }
+    },
+    {
+      "id": "n9",
+      "name": "Respond Accepted",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"status\": \"accepted\" }"
+      }
+    }
+  ],
+  "connections": {},
+  "settings": {
+    "errorWorkflow": "wf-error-handler-001",
+    "saveDataErrorExecution": "all",
+    "timezone": "UTC"
+  },
+  "active": false
+}
