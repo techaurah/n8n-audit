@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and ideas
+    url: https://github.com/techaurah/n8n-audit/discussions
+    about: Ask usage questions and share ideas in Discussions, not Issues.
+  - name: Security reports
+    url: https://github.com/techaurah/n8n-audit/security/advisories/new
+    about: Report vulnerabilities privately, never in a public issue.
