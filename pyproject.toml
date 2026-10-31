@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "n8n-audit"
+version = "0.1.0"
+description = "Production-readiness linter for exported n8n workflows: secrets, unauthenticated webhooks, missing error workflows, deduplication and retries, checked in seconds and in CI."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "TechAurah" }]
+keywords = ["n8n", "workflow", "linter", "automation", "ci", "audit"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[project.urls]
+Homepage = "https://techaurah.com"
+Repository = "https://github.com/techaurah/n8n-audit"
+Issues = "https://github.com/techaurah/n8n-audit/issues"
+
+[project.scripts]
+n8n-audit = "n8n_audit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
