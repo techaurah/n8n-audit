@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="760" viewBox="0 0 940 760" role="img" aria-label="Real audit output: golden fixture passes with no findings, failing fixture lists five findings">
+<rect width="940" height="760" rx="14" fill="#0B1F3A"/>
+<rect width="940" height="56" rx="14" fill="#12294D"/>
+<rect y="42" width="940" height="14" fill="#12294D"/>
+<circle cx="28" cy="28" r="6" fill="#F47067" opacity="0.85"/>
+<circle cx="50" cy="28" r="6" fill="#E3B341" opacity="0.85"/>
+<circle cx="72" cy="28" r="6" fill="#3FB950" opacity="0.85"/>
+<text x="470" y="33" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="600" fill="#EAF6FF" text-anchor="middle">Real audit output</text>
+<line x1="0" y1="56" x2="940" y2="56" stroke="#2A5A8F" stroke-width="1"/>
+<text x="30" y="88" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" font-weight="700" fill="#EAF6FF"><tspan fill="#00CEFF">$</tspan> n8n-audit fixtures/golden/lead-automation-hardened.json</text>
+<rect x="822" y="73" width="90" height="20" rx="10" fill="none" stroke="#3FB950"/>
+<text x="867" y="88" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="12.5" font-weight="700" fill="#3FB950" text-anchor="middle">exit 0</text>
+<text x="30" y="110" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#EAF6FF">Workflow: Lead Automation (Hardened) (fixtures/golden/lead-automation-hardened.json)</text>
+<text x="48" y="132" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#EAF6FF"><tspan fill="#3FB950" font-weight="700">OK:</tspan> no findings</text>
+<text x="30" y="176" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#EAF6FF">Summary: 1 workflow(s), 0 finding(s) (high=0, medium=0, low=0, info=0)</text>
+<text x="30" y="220" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" font-weight="700" fill="#EAF6FF"><tspan fill="#00CEFF">$</tspan> n8n-audit fixtures/fail/secrets.json</text>
+<rect x="822" y="205" width="90" height="20" rx="10" fill="none" stroke="#F47067"/>
+<text x="867" y="220" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="12.5" font-weight="700" fill="#F47067" text-anchor="middle">exit 1</text>
+<text x="30" y="242" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#EAF6FF">Workflow: Lead Capture (Tutorial Copy) (fixtures/fail/secrets.json)</text>
+<text x="48" y="264" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#EAF6FF"><tspan fill="#E3B341" font-weight="700">[MEDIUM]</tspan> missing-deduplication [node: Lead Webhook]: Workflow accepts webhook or form</text>
+<text x="48" y="286" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#EAF6FF">submissions but shows no deduplication pattern; redeliveries will be processed twice.</text>
+<text x="109" y="308" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#9DB8D2">Fix: Add a deduplication step after the trigger: check a unique key (lead id,</text>
+<text x="153" y="330" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#9DB8D2">email, submission id) against stored processed ids and stop early when it was</text>
+<text x="153" y="352" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#9DB8D2">already handled.</text>
+<text x="48" y="374" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#EAF6FF"><tspan fill="#9DB8D2" font-weight="700">[LOW]</tspan> missing-documentation: Workflow contains no sticky-note documentation.</text>
+<text x="109" y="396" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#9DB8D2">Fix: Add at least one sticky note to the canvas explaining what the workflow</text>
+<text x="153" y="418" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#9DB8D2">does, what triggers it and who owns it.</text>
+<text x="48" y="440" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#EAF6FF"><tspan fill="#F47067" font-weight="700">[HIGH]</tspan> missing-error-workflow: Workflow has no error workflow configured in its settings.</text>
+<text x="109" y="462" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#9DB8D2">Fix: Set an error workflow in the workflow settings (Settings &gt; Error Workflow)</text>
+<text x="153" y="484" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#9DB8D2">that alerts a human and logs the failed execution.</text>
+<text x="48" y="506" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#EAF6FF"><tspan fill="#F47067" font-weight="700">[HIGH]</tspan> secrets-in-parameters [node: Enrich Lead]: Possible credential assignment in text</text>
+<text x="48" y="528" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#EAF6FF">pasted into parameter &#x27;jsCode&#x27;.</text>
+<text x="109" y="550" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#9DB8D2">Fix: Move the secret into an n8n credential or an environment variable and</text>
+<text x="153" y="572" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#9DB8D2">reference it; rotate the exposed value, it has left the building.</text>
+<text x="48" y="594" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#EAF6FF"><tspan fill="#F47067" font-weight="700">[HIGH]</tspan> secrets-in-parameters [node: Notify Provider]: Possible OpenAI-style API key pasted</text>
+<text x="48" y="616" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#EAF6FF">into parameter &#x27;headerParameters.parameters[0].value&#x27;.</text>
+<text x="109" y="638" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#9DB8D2">Fix: Move the secret into an n8n credential or an environment variable and</text>
+<text x="153" y="660" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#9DB8D2">reference it; rotate the exposed value, it has left the building.</text>
+<text x="30" y="704" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="15" fill="#EAF6FF">Summary: 1 workflow(s), 5 finding(s) (high=3, medium=1, low=1, info=0)</text>
+<line x1="0" y1="720" x2="940" y2="720" stroke="#2A5A8F" stroke-width="1"/>
+<text x="30" y="746" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#9DB8D2">Verbatim output from the fixtures in this repo. Long lines wrapped to fit the card; nothing reworded.</text>
+</svg>
