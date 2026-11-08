@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="590" viewBox="0 0 1180 590" role="img" aria-label="n8n-audit repository structure">
+<rect width="1180" height="590" rx="18" fill="#0B1F3A"/>
+<text x="44" y="50" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="22" font-weight="700" fill="#EAF6FF">Repository structure</text>
+<text x="44" y="88" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="16" font-weight="700" fill="#00CEFF">n8n-audit/</text>
+<text x="560" y="88" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9DB8D2">production-readiness linter for n8n workflow exports</text>
+<text x="44" y="118" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="16" font-weight="400" fill="#EAF6FF">├─ src/n8n_audit/</text>
+<text x="560" y="118" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9DB8D2">the whole product, standard library only</text>
+<text x="44" y="148" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="16" font-weight="400" fill="#EAF6FF">│   ├─ cli.py</text>
+<text x="560" y="148" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9DB8D2">entry point: flags, audit loop, exit codes</text>
+<text x="44" y="178" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="16" font-weight="400" fill="#EAF6FF">│   ├─ loader.py</text>
+<text x="560" y="178" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9DB8D2">collect paths, parse exports into the model</text>
+<text x="44" y="208" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="16" font-weight="400" fill="#EAF6FF">│   ├─ model.py</text>
+<text x="560" y="208" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9DB8D2">Workflow, Node, Finding, AuditReport</text>
+<text x="44" y="238" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="16" font-weight="400" fill="#EAF6FF">│   ├─ report.py</text>
+<text x="560" y="238" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9DB8D2">text and JSON report rendering</text>
+<text x="44" y="268" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="16" font-weight="400" fill="#EAF6FF">│   └─ rules/</text>
+<text x="560" y="268" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9DB8D2">one module per rule, registered in ALL_RULES</text>
+<text x="44" y="298" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="16" font-weight="400" fill="#EAF6FF">│       └─ 8 detectors</text>
+<text x="560" y="298" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9DB8D2">secrets, credentials, webhooks, error_workflow, dedup, retry, naming, documentation</text>
+<text x="44" y="328" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="16" font-weight="400" fill="#EAF6FF">├─ fixtures/</text>
+<text x="560" y="328" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9DB8D2">exported workflow JSON used by the tests</text>
+<text x="44" y="358" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="16" font-weight="400" fill="#EAF6FF">│   ├─ golden/</text>
+<text x="560" y="358" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9DB8D2">one hardened workflow, passes all 8 rules</text>
+<text x="44" y="388" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="16" font-weight="400" fill="#EAF6FF">│   ├─ pass/</text>
+<text x="560" y="388" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9DB8D2">one minimal passing workflow per rule</text>
+<text x="44" y="418" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="16" font-weight="400" fill="#EAF6FF">│   └─ fail/</text>
+<text x="560" y="418" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9DB8D2">one failing workflow per rule</text>
+<text x="44" y="448" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="16" font-weight="400" fill="#EAF6FF">├─ tests/</text>
+<text x="560" y="448" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9DB8D2">41 tests mirroring the package, one file per rule</text>
+<text x="44" y="478" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="16" font-weight="400" fill="#EAF6FF">├─ docs/</text>
+<text x="560" y="478" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9DB8D2">rules.md rule reference, example-report.md</text>
+<text x="44" y="508" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="16" font-weight="400" fill="#EAF6FF">├─ .github/workflows/ci.yml</text>
+<text x="560" y="508" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9DB8D2">ruff, pytest and the golden smoke test, Python 3.10 to 3.12</text>
+<text x="44" y="538" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="16" font-weight="400" fill="#EAF6FF">└─ pyproject.toml</text>
+<text x="560" y="538" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9DB8D2">packaging: console script, zero runtime dependencies</text>
+</svg>

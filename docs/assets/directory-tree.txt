@@ -1,0 +1,37 @@
+n8n-audit/
+├── src/n8n_audit/              # the whole product (Python standard library only)
+│   ├── __init__.py             # package version (0.1.0)
+│   ├── cli.py                  # console entry point: flags, audit loop, exit codes
+│   ├── loader.py               # expand file/dir arguments, parse exported JSON into the model
+│   ├── model.py                # Workflow, Node, Finding, WorkflowResult, AuditReport
+│   ├── report.py               # render an AuditReport as text or JSON
+│   └── rules/                  # one module per rule; ALL_RULES registry in __init__.py
+│       ├── secrets.py          # secrets-in-parameters (high)
+│       ├── credentials.py      # credentials-outside-store (high)
+│       ├── webhooks.py         # webhook-without-auth (high)
+│       ├── error_workflow.py   # missing-error-workflow (high)
+│       ├── dedup.py            # missing-deduplication (medium)
+│       ├── retry.py            # http-without-retry (medium)
+│       ├── naming.py           # default-node-names (low, report-only)
+│       ├── documentation.py    # missing-documentation (low, report-only)
+│       └── _util.py            # shared helpers for detectors
+├── fixtures/                   # exported workflow JSON used by tests (fake demo data only)
+│   ├── golden/                 # lead-automation-hardened.json: passes all 8 rules
+│   ├── pass/                   # one minimal passing workflow per rule
+│   └── fail/                   # one failing workflow per rule
+├── tests/                      # pytest suite mirroring the package (41 tests)
+│   ├── test_loader.py
+│   ├── test_report.py
+│   └── rules/                  # one test module per rule
+├── docs/
+│   ├── rules.md                # rule reference
+│   ├── example-report.md       # a full real report, in text and JSON form
+│   └── assets/                 # README visuals: hero.png, architecture.svg, workflow.svg, repo-structure.svg
+├── .github/workflows/ci.yml    # ruff, pytest, golden-fixture smoke test (Python 3.10, 3.11, 3.12)
+├── pyproject.toml              # packaging, console script n8n-audit, zero runtime dependencies
+├── README.md
+├── CONTRIBUTING.md             # includes the new-rule checklist
+├── CHANGELOG.md
+├── ROADMAP.md
+├── SECURITY.md
+└── LICENSE                     # MIT

@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="600" viewBox="0 0 1240 600" role="img" aria-label="n8n-audit architecture: exported workflow JSON is loaded into a model, checked by eight rule detectors, and rendered as a report with a CI exit code">
+<rect width="1240" height="600" rx="18" fill="#0B1F3A"/>
+<text x="48" y="54" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="25" font-weight="700" fill="#EAF6FF">How n8n-audit works</text>
+<text x="48" y="82" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" fill="#9DB8D2">Static analysis of exported workflow JSON. It never runs, schedules or modifies a workflow, and never calls the network.</text>
+<rect x="36" y="120" width="180" height="176" rx="12" fill="#12294D" stroke="#2A5A8F" stroke-width="1.5"/>
+<text x="54" y="154" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#EAF6FF">WORKFLOW JSON</text>
+<text x="54" y="182" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#EAF6FF">Exported from n8n</text>
+<text x="54" y="204" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#EAF6FF">as JSON files</text>
+<text x="54" y="226" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#9DB8D2">One file, a whole</text>
+<text x="54" y="248" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#9DB8D2">directory, or a JSON</text>
+<text x="54" y="270" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#9DB8D2">list of workflows</text>
+<line x1="216" y1="208" x2="242" y2="208" stroke="#00CEFF" stroke-width="2.5"/>
+<polygon points="242,202 254,208 242,214" fill="#00CEFF"/>
+<rect x="252" y="120" width="196" height="176" rx="12" fill="#12294D" stroke="#2A5A8F" stroke-width="1.5"/>
+<text x="270" y="154" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#EAF6FF">loader.py</text>
+<text x="270" y="182" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="12" fill="#EAF6FF">collect_paths expands</text>
+<text x="270" y="204" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#EAF6FF">folders to *.json;</text>
+<text x="270" y="226" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#EAF6FF">load_file parses each</text>
+<text x="270" y="248" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#EAF6FF">export into the model.</text>
+<text x="270" y="270" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#9DB8D2">Bad input raises</text>
+<text x="270" y="292" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#9DB8D2">LoaderError.</text>
+<line x1="448" y1="208" x2="474" y2="208" stroke="#00CEFF" stroke-width="2.5"/>
+<polygon points="474,202 486,208 474,214" fill="#00CEFF"/>
+<rect x="484" y="120" width="176" height="176" rx="12" fill="#12294D" stroke="#2A5A8F" stroke-width="1.5"/>
+<text x="502" y="154" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#EAF6FF">model.py</text>
+<text x="502" y="182" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#EAF6FF">Workflow and Node</text>
+<text x="502" y="204" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#EAF6FF">dataclasses: names,</text>
+<text x="502" y="226" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#EAF6FF">node types,</text>
+<text x="502" y="248" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#EAF6FF">parameters,</text>
+<text x="502" y="270" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#EAF6FF">credentials, settings.</text>
+<line x1="660" y1="208" x2="686" y2="208" stroke="#00CEFF" stroke-width="2.5"/>
+<polygon points="686,202 698,208 686,214" fill="#00CEFF"/>
+<rect x="696" y="105" width="308" height="348" rx="12" fill="#12294D" stroke="#00CEFF" stroke-width="2"/>
+<text x="718" y="141" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#00CEFF">rules/ · ALL_RULES registry</text>
+<text x="718" y="165" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#9DB8D2">8 pure detectors, each returns</text>
+<text x="718" y="184" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#9DB8D2">Finding objects for one workflow.</text>
+<rect x="718" y="197" width="264" height="25" rx="6" fill="#0E2A4F" stroke="#2A5A8F"/>
+<text x="729" y="214" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="12.5" fill="#EAF6FF">secrets-in-parameters</text>
+<text x="971" y="214" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#00CEFF" text-anchor="end">HIGH</text>
+<rect x="718" y="226" width="264" height="25" rx="6" fill="#0E2A4F" stroke="#2A5A8F"/>
+<text x="729" y="243" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="12.5" fill="#EAF6FF">credentials-outside-store</text>
+<text x="971" y="243" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#00CEFF" text-anchor="end">HIGH</text>
+<rect x="718" y="255" width="264" height="25" rx="6" fill="#0E2A4F" stroke="#2A5A8F"/>
+<text x="729" y="272" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="12.5" fill="#EAF6FF">webhook-without-auth</text>
+<text x="971" y="272" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#00CEFF" text-anchor="end">HIGH</text>
+<rect x="718" y="284" width="264" height="25" rx="6" fill="#0E2A4F" stroke="#2A5A8F"/>
+<text x="729" y="301" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="12.5" fill="#EAF6FF">missing-error-workflow</text>
+<text x="971" y="301" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#00CEFF" text-anchor="end">HIGH</text>
+<rect x="718" y="313" width="264" height="25" rx="6" fill="#0E2A4F" stroke="#2A5A8F"/>
+<text x="729" y="330" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="12.5" fill="#EAF6FF">missing-deduplication</text>
+<text x="971" y="330" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#9DB8D2" text-anchor="end">MEDIUM</text>
+<rect x="718" y="342" width="264" height="25" rx="6" fill="#0E2A4F" stroke="#2A5A8F"/>
+<text x="729" y="359" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="12.5" fill="#EAF6FF">http-without-retry</text>
+<text x="971" y="359" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#9DB8D2" text-anchor="end">MEDIUM</text>
+<rect x="718" y="371" width="264" height="25" rx="6" fill="#0E2A4F" stroke="#2A5A8F"/>
+<text x="729" y="388" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="12.5" fill="#EAF6FF">default-node-names</text>
+<text x="971" y="388" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#9DB8D2" text-anchor="end">LOW</text>
+<rect x="718" y="400" width="264" height="25" rx="6" fill="#0E2A4F" stroke="#2A5A8F"/>
+<text x="729" y="417" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="12.5" fill="#EAF6FF">missing-documentation</text>
+<text x="971" y="417" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#9DB8D2" text-anchor="end">LOW</text>
+<text x="718" y="441" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#9DB8D2">Every finding carries a one-line remediation.</text>
+<line x1="1004" y1="208" x2="1030" y2="208" stroke="#00CEFF" stroke-width="2.5"/>
+<polygon points="1030,202 1042,208 1030,214" fill="#00CEFF"/>
+<rect x="1040" y="120" width="164" height="176" rx="12" fill="#12294D" stroke="#2A5A8F" stroke-width="1.5"/>
+<text x="1058" y="154" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#EAF6FF">REPORT</text>
+<text x="1058" y="182" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#EAF6FF">Text or JSON</text>
+<text x="1058" y="204" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#EAF6FF">(--format) printed</text>
+<text x="1058" y="226" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#EAF6FF">to stdout: findings</text>
+<text x="1058" y="248" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#EAF6FF">per workflow, plus</text>
+<text x="1058" y="270" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#EAF6FF">severity summary.</text>
+<rect x="36" y="316" width="624" height="116" rx="12" fill="#12294D" stroke="#2A5A8F" stroke-width="1.5"/>
+<text x="56" y="350" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#EAF6FF">Inside a Finding (model.py)</text>
+<text x="56" y="378" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="13.5" fill="#00CEFF">rule · severity · message · remediation · node (optional)</text>
+<text x="56" y="404" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" fill="#9DB8D2">Severities rank info, low, medium, high. Findings are sorted by rule and</text>
+<text x="56" y="422" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" fill="#9DB8D2">grouped per workflow in an AuditReport, which computes the exit code.</text>
+<rect x="36" y="472" width="380" height="78" rx="10" fill="#0E2A4F" stroke="#00CEFF" stroke-width="1.5"/>
+<text x="54" y="500" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#00CEFF">EXIT 0</text>
+<text x="54" y="521" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#9DB8D2">No findings at or above the</text>
+<text x="54" y="537" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#9DB8D2">--fail-on threshold (default high)</text>
+<rect x="432" y="472" width="380" height="78" rx="10" fill="#0E2A4F" stroke="#2A5A8F" stroke-width="1.5"/>
+<text x="450" y="500" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#00CEFF">EXIT 1</text>
+<text x="450" y="521" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#9DB8D2">Findings at or above the threshold:</text>
+<text x="450" y="537" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#9DB8D2">the signal that fails a CI build</text>
+<rect x="828" y="472" width="380" height="78" rx="10" fill="#0E2A4F" stroke="#2A5A8F" stroke-width="1.5"/>
+<text x="846" y="500" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#00CEFF">EXIT 2</text>
+<text x="846" y="521" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#9DB8D2">Input unreadable or invalid, or no</text>
+<text x="846" y="537" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#9DB8D2">workflow files found in the paths</text>
+<text x="48" y="580" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9DB8D2">Entry point: the n8n-audit console script in cli.py. Pure Python standard library, zero runtime dependencies.</text>
+</svg>

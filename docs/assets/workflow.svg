@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="430" viewBox="0 0 1240 430" role="img" aria-label="An n8n-audit run: export a workflow, run the CLI, read the report, and let the exit code decide, locally or in CI">
+<rect width="1240" height="430" rx="18" fill="#0B1F3A"/>
+<text x="48" y="54" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="25" font-weight="700" fill="#EAF6FF">An audit run, end to end</text>
+<text x="48" y="82" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" fill="#9DB8D2">From an exported workflow to a pass or fail decision in seconds, fully offline.</text>
+<rect x="32" y="112" width="216" height="146" rx="12" fill="#12294D" stroke="#2A5A8F" stroke-width="1.5"/>
+<text x="48" y="144" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="15.5" font-weight="700" fill="#EAF6FF">1 · EXPORT</text>
+<text x="48" y="170" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#EAF6FF">In n8n: workflow menu,</text>
+<text x="48" y="190" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#EAF6FF">Download. One JSON</text>
+<text x="48" y="210" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#EAF6FF">file per workflow.</text>
+<text x="48" y="236" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#9DB8D2">No instance, account</text>
+<text x="48" y="254" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#9DB8D2">or network needed.</text>
+<line x1="251" y1="185" x2="267" y2="185" stroke="#00CEFF" stroke-width="2.5"/>
+<polygon points="267,179 273,185 267,191" fill="#00CEFF"/>
+<rect x="270" y="112" width="216" height="146" rx="12" fill="#12294D" stroke="#2A5A8F" stroke-width="1.5"/>
+<text x="286" y="144" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="15.5" font-weight="700" fill="#00CEFF">2 · RUN THE CLI</text>
+<text x="286" y="170" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="12.5" fill="#EAF6FF">n8n-audit workflow.json</text>
+<text x="286" y="190" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="12.5" fill="#EAF6FF">or audit a whole folder:</text>
+<text x="286" y="210" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="12.5" fill="#EAF6FF">n8n-audit exports/</text>
+<text x="286" y="236" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#9DB8D2">Files, directories</text>
+<text x="286" y="254" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#9DB8D2">or a mix of both.</text>
+<line x1="489" y1="185" x2="505" y2="185" stroke="#00CEFF" stroke-width="2.5"/>
+<polygon points="505,179 511,185 505,191" fill="#00CEFF"/>
+<rect x="508" y="112" width="216" height="146" rx="12" fill="#12294D" stroke="#2A5A8F" stroke-width="1.5"/>
+<text x="524" y="144" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="15.5" font-weight="700" fill="#EAF6FF">3 · 8 RULES CHECK</text>
+<text x="524" y="170" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#EAF6FF">All 8 detectors run on</text>
+<text x="524" y="190" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#EAF6FF">every workflow, the</text>
+<text x="524" y="210" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#EAF6FF">same way every time.</text>
+<text x="524" y="236" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#9DB8D2">Deterministic checks,</text>
+<text x="524" y="254" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#9DB8D2">done in seconds.</text>
+<line x1="727" y1="185" x2="743" y2="185" stroke="#00CEFF" stroke-width="2.5"/>
+<polygon points="743,179 749,185 743,191" fill="#00CEFF"/>
+<rect x="746" y="112" width="216" height="146" rx="12" fill="#12294D" stroke="#2A5A8F" stroke-width="1.5"/>
+<text x="762" y="144" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="15.5" font-weight="700" fill="#EAF6FF">4 · READ THE REPORT</text>
+<text x="762" y="170" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#EAF6FF">Each finding shows its</text>
+<text x="762" y="190" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#EAF6FF">severity, the node, and</text>
+<text x="762" y="210" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#EAF6FF">a one-line Fix.</text>
+<text x="762" y="236" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#9DB8D2">Clean workflows</text>
+<text x="762" y="254" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#9DB8D2">report OK.</text>
+<line x1="965" y1="185" x2="981" y2="185" stroke="#00CEFF" stroke-width="2.5"/>
+<polygon points="981,179 987,185 981,191" fill="#00CEFF"/>
+<rect x="984" y="112" width="216" height="146" rx="12" fill="#12294D" stroke="#00CEFF" stroke-width="2"/>
+<text x="1000" y="144" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="15.5" font-weight="700" fill="#00CEFF">5 · EXIT CODE</text>
+<text x="1000" y="170" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="12.5" fill="#EAF6FF">0 pass · 1 findings at</text>
+<text x="1000" y="190" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#EAF6FF">or above --fail-on ·</text>
+<text x="1000" y="210" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#EAF6FF">2 input problem.</text>
+<text x="1000" y="236" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#9DB8D2">The contract CI</text>
+<text x="1000" y="254" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#9DB8D2">builds rely on.</text>
+<rect x="32" y="288" width="1176" height="84" rx="12" fill="#12294D" stroke="#2A5A8F" stroke-width="1.5"/>
+<text x="54" y="322" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#00CEFF">IN CI</text>
+<text x="130" y="322" font-family="Consolas,Menlo,'DejaVu Sans Mono',monospace" font-size="14" fill="#EAF6FF">n8n-audit exports/ --format json --fail-on medium</text>
+<text x="54" y="350" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" fill="#9DB8D2">Fail the build on medium or worse findings. This repo's own CI also smoke-tests the CLI on the golden fixture, which must pass all 8 rules.</text>
+<text x="48" y="410" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9DB8D2">The whole interface is flags, reports and exit codes: no config file, no environment variables.</text>
+</svg>
